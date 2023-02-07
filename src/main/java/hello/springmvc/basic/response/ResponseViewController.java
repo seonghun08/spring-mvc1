@@ -29,7 +29,7 @@ public class ResponseViewController {
      * HttpServletResponse, OutputStream(Writer) 같은 HTTP 메시지 바디를 처리하는 파라미터가 없으면 요청 URL 을 참고해서 논리 뷰 이름으로 사용
      * 요청(URL): /response/hello
      * 실행: templates/response/hello.html
-     * 참고로 이 방식은 명시성이 너무 떨어지고 이렇게 딱 맞는 경우도 많이 없어서, 권장하지 않는다
+     * 참고로 이 방식은 명시성이 너무 떨어지고 이렇게 딱 맞는 경우도 많이 없어서, 권장하지 않는다.
      */
     @RequestMapping("/response/hello")
     public void responseViewV3(Model model) {
