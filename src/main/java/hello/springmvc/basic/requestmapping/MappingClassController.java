@@ -1,11 +1,11 @@
 package hello.springmvc.basic.requestmapping;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @RestController
+@RequestMapping("/mapping/users")
 public class MappingClassController {
+
     /* - 요청 매핑 - API 예시
      *   목록 조회: GET    /users
      *   회원 등록: POST   /users

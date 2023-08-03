@@ -85,6 +85,12 @@ public class MappingController {
         return "ok";
     }
 
+    /*
+     * - Content-Type, Accept 헤더의 차이점
+     *  "Content-Type"은 클라이언트가 서버로 보내는 데이터의 형식을 지정하고,
+     *  "Accept"는 클라이언트가 서버로부터 받고자 하는 데이터의 형식을 요청하는 데 사용된다.
+     */
+
     /**
      * - Content-Type 헤더 기반 추가 매핑 Media Type
      *   설정 값으로 요청이 와야 처리 된다.
