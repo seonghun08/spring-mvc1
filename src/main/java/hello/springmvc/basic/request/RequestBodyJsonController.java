@@ -17,6 +17,10 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
+/**
+ * {"username":"hello", "age":20}
+ * content-type: application/json
+ */
 @Slf4j
 @Controller
 public class RequestBodyJsonController {
@@ -37,6 +41,15 @@ public class RequestBodyJsonController {
         response.getWriter().write("ok");
     }
 
+    /**
+     * @RequestBody
+     * HttpMessageConverter 사용 -> StringHttpMessageConverter 적용
+     *
+     * @ResponseBody
+     * - 모든 메서드에 @ResponseBody 적용
+     * - 메시지 바디 정보 직접 반환(view 조회X)
+     * - HttpMessageConverter 사용 -> StringHttpMessageConverter 적용
+     */
     @ResponseBody
     @PostMapping("/request-body-json-v2")
     public String requestBodyJsonV2(@RequestBody String requestBody) throws IOException {
@@ -50,6 +63,11 @@ public class RequestBodyJsonController {
         return "ok";
     }
 
+    /**
+     * @RequestBody 생략 불가능(@ModelAttribute 가 적용되어 버림)
+     * HttpMessageConverter 사용 -> MappingJackson2HttpMessageConverter (contenttype: application/json)
+     *
+     */
     @ResponseBody
     @PostMapping("/request-body-json-v3")
     public String requestBodyJsonV3(@RequestBody HelloData helloData) {
@@ -70,6 +88,15 @@ public class RequestBodyJsonController {
         return "ok";
     }
 
+    /**
+     * @RequestBody 생략 불가능(@ModelAttribute 가 적용되어 버림)
+     * HttpMessageConverter 사용 -> MappingJackson2HttpMessageConverter (contenttype: application/json)
+     *
+     * @ResponseBody 적용
+     * - 메시지 바디 정보 직접 반환(view 조회X)
+     * - HttpMessageConverter 사용 -> MappingJackson2HttpMessageConverter 적용
+     *  (Accept: application/json)
+     */
     @ResponseBody
     @PostMapping("/request-body-json-v5")
     public HelloData requestBodyJsonV5(@RequestBody HelloData helloData) {
